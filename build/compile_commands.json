@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/nguye/Desktop/New project/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\newproject.dir\\main.cpp.obj -c \"C:\\Users\\nguye\\Desktop\\New project\\main.cpp\"",
+  "file": "C:/Users/nguye/Desktop/New project/main.cpp",
+  "output": "CMakeFiles/newproject.dir/main.cpp.obj"
+}
+]
