@@ -6,14 +6,14 @@ using namespace std;
 class Hopdong {
 public:
     string hoten, cmt, loaixe, bienso;
-    unsigned int price;
     struct tm start_time, end_time;
     Hopdong();
     virtual unsigned int cost() = 0;
     virtual void savetofile() = 0;
     virtual void getdata() = 0;
     void getbienso();
-    virtual void getprice() = 0; 
+    virtual unsigned int getprice() = 0; 
+    virtual unsigned int getextra() = 0;
     virtual void show() = 0;
 };
 
@@ -26,7 +26,8 @@ public:
     virtual unsigned int cost();
     virtual void savetofile();
     virtual void getdata();
-    virtual void getprice(); 
+    virtual unsigned int getprice();
+    virtual unsigned int getextra();
     virtual void show();
 };
 
@@ -39,7 +40,8 @@ public:
     virtual unsigned int cost();
     virtual void savetofile();
     virtual void getdata();
-    virtual void getprice(); 
+    virtual unsigned int getprice();
+    virtual unsigned int getextra();
     virtual void show();
 };
 

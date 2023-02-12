@@ -38,47 +38,59 @@ void txt_extract(string &destination, const string spare, const string filename)
     }
 }
 
-void update_price() {
-    int choice;
-    string temp, unchange, newprice;
+void update_price(string newprice, int choice) {
+    string temp, unchange;
     ifstream file("price.txt"); 
     ofstream ftemp("temp.txt");
-    cout << "Chon loai hop dong can cap nhat gia:\n";
-    cout << "1. Hop dong ngay\n";
-    cout << "2. Hop dong thang\n";
-    cout << "Lua chon cua ban: "; fflush(stdin); cin >> choice;
     switch (choice) {
         case 1:
         if ( file.is_open() ) {
             while ( !file.eof() ) {
                 getline(file, temp);
-                if( (temp.find("monthly price: ")) != string::npos ){
+                if( (temp.find("daily price: ")) == string::npos ) {
                 unchange = temp;
+                ftemp << temp;
+                }
+                else {
+                    ftemp << "daily price: " << newprice;
                 }
             }
         }
         else {
-            cout << "File du lieu gia bi loi!";
+            //cout << "File du lieu gia bi loi!";
         }
-        cout << "Nhap gia thue ngay moi: "; getline(cin, newprice);
-        ftemp << "daily price: " << newprice;
-        ftemp << unchange;
         break;
         case 2:
+       if ( file.is_open() ) {
+            while ( !file.eof() ) {
+                getline(file, temp);
+                if( (temp.find("monthly price: ")) == string::npos ) {
+                unchange = temp;
+                ftemp << temp;
+                }
+                else {
+                    ftemp << "monthly price: " << newprice;
+                }
+            }
+        }
+        else {
+            //cout << "File du lieu gia bi loi!";
+        }
+        case 3:
         if ( file.is_open() ) {
             while ( !file.eof() ) {
                 getline(file, temp);
-                if( (temp.find("daily price: ")) != string::npos ){
+                if( (temp.find("extra: ")) == string::npos ) {
                 unchange = temp;
+                ftemp << temp;
+                }
+                else {
+                    ftemp << "extra: " << newprice;
                 }
             }
         }
         else {
-            cout << "File du lieu gia bi loi!";
+            //cout << "File du lieu gia bi loi!";
         }
-        cout << "Nhap gia thue ngay moi: "; getline(cin, newprice);
-        ftemp << unchange;
-        ftemp << "monthly price: " << newprice;
-        break;
     }
 }

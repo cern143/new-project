@@ -19,7 +19,6 @@ public:
         getline(source, this->cmt);
         getline(source, this->loaixe);
         getline(source, this->bienso);
-        getline(source, (string&)this->price);
         getline(source, (string&)this->start_time.tm_mday);
         getline(source, (string&)this->start_time.tm_mon);
         getline(source, (string&)this->start_time.tm_year);
@@ -65,20 +64,23 @@ public:
         //cout << "nam: ";
         //cin >> end_time.tm_year;
     }
-    virtual void getprice() {
+    virtual unsigned int getprice() {
         ifstream file("price.txt");
         string temp;
+        int price;
         while ( !file.eof() ) {
             getline(file, temp);
-            if( (temp.find("daily cost: ")) != string::npos ){
+            if( (temp.find("daily cost: ")) != string::npos ) {
                 deletesubstr(temp, "daily cost: ");
                 price = str_toint(temp);
+                return price;
             }
         }
     }
+    virtual unsigned int getextra() {}
     virtual unsigned int cost() {
         unsigned int cost;
-        cost = diffdays(start_time, end_time) * cost;
+        cost = diffdays(start_time, end_time) * this->getprice();
         return cost;
     }
     virtual void show() {
@@ -118,7 +120,7 @@ public:
     virtual unsigned int cost()
     {
         unsigned int cost;
-        cost = diffmonths(start_time, end_time) * price + 1000000;
+        cost = diffmonths(start_time, end_time) * this->getprice() + this->getextra();
         return cost;
     }
     virtual void savetofile()
@@ -161,14 +163,29 @@ public:
         cout << "nam: ";
         cin >> end_time.tm_year;
     }
-    virtual void getprice() {
+    virtual unsigned int getprice() {
         ifstream file("cost.txt");
         string temp;
+        unsigned int price;
         while ( !file.eof() ) {
             getline(file, temp);
             if( (temp.find("monthly cost: ")) != string::npos ){
                 deletesubstr(temp, "monthly cost: ");
                 price = str_toint(temp);
+                return price;
+            }
+        }
+    }
+    virtual unsigned int getextra() {
+        ifstream file("cost.txt");
+        string temp;
+        unsigned int extra;
+        while ( !file.eof() ) {
+            getline(file, temp);
+            if( (temp.find("extra: ")) != string::npos ){
+                deletesubstr(temp, "extra: ");
+                extra = str_toint(temp);
+                return extra;
             }
         }
     }
