@@ -1,7 +1,6 @@
 #include "C:\Users\nguye\Desktop\New project\include\vectorHd.h"
 using namespace std;
-void readHd(vector<Hopdong> &v, int mode) {
-    if (mode == 1) {
+void readHd(vector<Hd_ngay> v) {
         ifstream file("hdngay.txt");
         if (file.is_open()) {
             int i = 0;
@@ -14,8 +13,9 @@ void readHd(vector<Hopdong> &v, int mode) {
             //cout << "File du lieu hop dong bi loi!";
         }
         file.close();
-    }
-    if (mode == 2) {
+}
+
+void readHd(vector<Hd_thang> v) {
         ifstream file("hdthang.txt");
         if (file.is_open()) {
             int i = 0;
@@ -28,7 +28,6 @@ void readHd(vector<Hopdong> &v, int mode) {
             //cout << "File du lieu hop dong bi loi!";
         }
         file.close();
-    }
 }
 
 void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
