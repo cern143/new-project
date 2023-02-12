@@ -99,4 +99,5 @@ unsigned int sum(vector<Hopdong*> v, struct tm start_time, struct tm end_time) {
             sum = sum + v.at(i)->cost();
         }
     }
+    return sum;
 }
