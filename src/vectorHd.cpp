@@ -1,6 +1,6 @@
 #include "C:\Users\nguye\Desktop\New project\include\vectorHd.h"
 using namespace std;
-void readHd(vector<Hd_ngay> v) {
+void readHd(vector<Hd_ngay> &v) {
         ifstream file("hdngay.txt");
         if (file.is_open()) {
             int i = 0;
@@ -15,7 +15,7 @@ void readHd(vector<Hd_ngay> v) {
         file.close();
 }
 
-void readHd(vector<Hd_thang> v) {
+void readHd(vector<Hd_thang> &v) {
         ifstream file("hdthang.txt");
         if (file.is_open()) {
             int i = 0;
