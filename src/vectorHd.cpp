@@ -108,3 +108,15 @@ void cost_search(vector<Hopdong*> v, vector<int> &rank, int cost) {
         }
     }
 }
+
+int stt(vector<Hopdong*> v, string hoten) {
+    int stt;
+    for (int i = 0; i < v.size(); i++)
+        {
+            if ((v.at(i)->hoten.find(hoten)) != string::npos)
+            {
+                stt = i;
+                return stt;
+            }
+        }
+}
