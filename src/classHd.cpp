@@ -23,8 +23,15 @@ Hd_ngay::Hd_ngay(istream &source) {
     getline(source, (string&)this->end_time.tm_mday);
     getline(source, (string&)this->end_time.tm_mon);
     getline(source, (string&)this->end_time.tm_year);
+
 }
 void Hd_ngay::savetofile() {
+    start_time.tm_hour = 0;
+    start_time.tm_min = 0;
+    start_time.tm_sec = 0;
+    end_time.tm_hour = 0;
+    end_time.tm_min = 0;
+    end_time.tm_sec = 0;
     ofstream file;
     file.open("hdngay.txt", ios::app);
     file << hoten << "\n";
@@ -104,6 +111,12 @@ Hd_thang::~Hd_thang() {
 }
 Hd_thang::Hd_thang(istream &source)
 {
+    start_time.tm_hour = 0;
+    start_time.tm_min = 0;
+    start_time.tm_sec = 0;
+    end_time.tm_hour = 0;
+    end_time.tm_min = 0;
+    end_time.tm_sec = 0;
     getline(source, this->hoten);
     getline(source, this->cmt);
     getline(source, this->loaixe);

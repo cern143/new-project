@@ -89,6 +89,12 @@ void deleteHd(vector<Hopdong*> v, int stt)
 
 unsigned int cost_sum(vector<Hopdong*> v, struct tm start_time, struct tm end_time) {
     unsigned int sum;
+    start_time.tm_hour = 0;
+    start_time.tm_min = 0;
+    start_time.tm_sec = 0;
+    end_time.tm_hour = 0;
+    end_time.tm_min = 0;
+    end_time.tm_sec = 0;
     time_t x = mktime(&start_time);
     time_t y = mktime(&end_time);
     for ( int i = 0; i < v.size(); i++ ) {
