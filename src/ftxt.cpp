@@ -49,10 +49,10 @@ void update_price(string newprice, int choice) {
                 getline(file, temp);
                 if( (temp.find("daily price: ")) == string::npos ) {
                 unchange = temp;
-                ftemp << temp;
+                ftemp << temp << "\n";
                 }
                 else {
-                    ftemp << "daily price: " << newprice;
+                    ftemp << "daily price: " << newprice << "\n";
                 }
             }
         }
@@ -66,31 +66,37 @@ void update_price(string newprice, int choice) {
                 getline(file, temp);
                 if( (temp.find("monthly price: ")) == string::npos ) {
                 unchange = temp;
-                ftemp << temp;
+                ftemp << temp << "\n";
                 }
                 else {
-                    ftemp << "monthly price: " << newprice;
+                    ftemp << "monthly price: " << newprice << "\n";
                 }
             }
         }
         else {
             //cout << "File du lieu gia bi loi!";
         }
+        break;
         case 3:
         if ( file.is_open() ) {
             while ( !file.eof() ) {
                 getline(file, temp);
                 if( (temp.find("extra: ")) == string::npos ) {
                 unchange = temp;
-                ftemp << temp;
+                ftemp << temp << "\n";
                 }
                 else {
-                    ftemp << "extra: " << newprice;
+                    ftemp << "extra: " << newprice << "\n";
                 }
             }
         }
         else {
             //cout << "File du lieu gia bi loi!";
         }
+        break;
     }
+    file.close();
+    ftemp.close();
+    remove("D:\\price.txt");
+    rename("temp.txt", "D:\\price.txt");
 }
