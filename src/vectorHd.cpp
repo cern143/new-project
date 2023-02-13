@@ -88,25 +88,36 @@ void deleteHd(vector<Hopdong*> &v, int stt)
 }
 
 unsigned int cost_sum(vector<Hopdong*> &v, struct tm start_time, struct tm end_time) {
-    unsigned int sum;
+    unsigned int sum = 0;
     start_time.tm_hour = 0;
     start_time.tm_min = 0;
     start_time.tm_sec = 0;
+    if (start_time.tm_year > 1900 ) {
+        start_time.tm_year = start_time.tm_year - 1900;
+    }
     end_time.tm_hour = 0;
     end_time.tm_min = 0;
     end_time.tm_sec = 0;
+    if (end_time.tm_year > 1900 ) {
+        end_time.tm_year = end_time.tm_year - 1900;
+    }
     time_t x = mktime(&start_time);
     time_t y = mktime(&end_time);
     for ( int i = 0; i < v.size(); i++ ) {
-        v.at(i)->start_time.tm_year = v.at(i)->start_time.tm_year - 1900;
+        if (v.at(i)->start_time.tm_year > 1900) {
+            v.at(i)->start_time.tm_year = v.at(i)->start_time.tm_year - 1900;
+        }
         v.at(i)->start_time.tm_hour = 0;
         v.at(i)->start_time.tm_min = 0;
         v.at(i)->start_time.tm_sec = 0;
-        v.at(i)->end_time.tm_year = v.at(i)->end_time.tm_year - 1900;
+        if (v.at(i)->end_time.tm_year > 1900) {
+            v.at(i)->end_time.tm_year = v.at(i)->end_time.tm_year - 1900;
+        }
         v.at(i)->end_time.tm_hour = 0;
         v.at(i)->end_time.tm_min = 0;
         v.at(i)->end_time.tm_sec = 0;
         if ( x <=  mktime(&(v.at(i)->start_time)) && mktime(&(v.at(i)->end_time)) <= y ) {
+            cout << v.at(i)->cost();
             sum = sum + v.at(i)->cost();
         }
     }
