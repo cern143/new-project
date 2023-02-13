@@ -40,7 +40,7 @@ void txt_extract(string &destination, const string spare, const string filename)
 
 void update_price(string newprice, int choice) {
     string temp, unchange;
-    ifstream file("D:\\C:\\price.txt"); 
+    ifstream file("C:\\price.txt"); 
     ofstream ftemp("temp.txt");
     switch (choice) {
         case 1:
@@ -97,6 +97,6 @@ void update_price(string newprice, int choice) {
     }
     file.close();
     ftemp.close();
-    remove("D:\\C:\\price.txt");
-    rename("temp.txt", "D:\\C:\\price.txt");
+    remove("C:\\price.txt");
+    rename("temp.txt", "C:\\price.txt");
 }

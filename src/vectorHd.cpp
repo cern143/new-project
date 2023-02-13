@@ -87,7 +87,7 @@ void deleteHd(vector<Hopdong*> &v, int stt)
     //cout << "Xoa hop dong thanh cong!";
 }
 
-unsigned int cost_sum(vector<Hopdong*> v, struct tm start_time, struct tm end_time) {
+unsigned int cost_sum(vector<Hopdong*> &v, struct tm start_time, struct tm end_time) {
     unsigned int sum;
     start_time.tm_hour = 0;
     start_time.tm_min = 0;
@@ -98,6 +98,14 @@ unsigned int cost_sum(vector<Hopdong*> v, struct tm start_time, struct tm end_ti
     time_t x = mktime(&start_time);
     time_t y = mktime(&end_time);
     for ( int i = 0; i < v.size(); i++ ) {
+        v.at(i)->start_time.tm_year = v.at(i)->start_time.tm_year - 1900;
+        v.at(i)->start_time.tm_hour = 0;
+        v.at(i)->start_time.tm_min = 0;
+        v.at(i)->start_time.tm_sec = 0;
+        v.at(i)->end_time.tm_year = v.at(i)->end_time.tm_year - 1900;
+        v.at(i)->end_time.tm_hour = 0;
+        v.at(i)->end_time.tm_min = 0;
+        v.at(i)->end_time.tm_sec = 0;
         if ( x <=  mktime(&(v.at(i)->start_time)) && mktime(&(v.at(i)->end_time)) <= y ) {
             sum = sum + v.at(i)->cost();
         }
