@@ -78,13 +78,12 @@ void changeHd(vector<Hopdong> &v, vector<int> &rank) {
     cout << "Sua hop dong thanh cong!";
 }
 
-void deleteHd(vector<Hopdong> &v, vector<int> &rank)
+void deleteHd(vector<Hopdong*> v, int stt)
 {
-    int stt;
     //cout << "Chon hop dong ban muon xoa (Nhap so thu tu hien thi cua hop dong):\n";
     //cout << "Lua chon cua ban: ";
     //cin >> stt;
-    v.erase(v.begin() + rank.at(stt - 1));
+    v.erase(v.begin() + stt);
     //cout << "Xoa hop dong thanh cong!";
 }
 

@@ -7,6 +7,7 @@ unsigned int diffdays(struct tm start, struct tm end)
      */
     time_t x, y;
     double difference;
+    start.tm_hour = 0;
     x = mktime(&start);
     y = mktime(&end);
     if (x != (time_t)(-1) && y != (time_t)(-1))
