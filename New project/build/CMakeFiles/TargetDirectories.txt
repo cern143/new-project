@@ -1,3 +1,0 @@
-C:/Users/nguye/Desktop/New project/build/CMakeFiles/newproject.dir
-C:/Users/nguye/Desktop/New project/build/CMakeFiles/edit_cache.dir
-C:/Users/nguye/Desktop/New project/build/CMakeFiles/rebuild_cache.dir

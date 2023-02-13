@@ -1,4 +1,4 @@
-#include "C:\Users\nguye\Desktop\New project\include\vectorHd.h"
+#include "../include/vectorHd.h"
 using namespace std;
 void readHd(vector<Hd_ngay> &v) {
         ifstream file("hdngay.txt");

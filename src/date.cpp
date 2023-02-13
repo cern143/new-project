@@ -1,4 +1,4 @@
-#include "C:\Users\nguye\Desktop\New project\include\date.h"
+#include "../include/date.h"
 
 unsigned int diffdays(struct tm start, struct tm end)
 {

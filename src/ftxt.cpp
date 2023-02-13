@@ -1,4 +1,4 @@
-#include "C:\Users\nguye\Desktop\New project\include\ftxt.h"
+#include "../include/ftxt.h"
 using namespace std;
 void txt_extract(string &destination, const string spare, const string filename)
 {

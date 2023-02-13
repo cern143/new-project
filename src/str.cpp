@@ -1,4 +1,4 @@
-#include "C:\Users\nguye\Desktop\New project\include\str.h"
+#include "../include/str.h"
 using namespace std;
 void encryptstr(string &s)
 {
