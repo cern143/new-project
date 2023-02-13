@@ -4,7 +4,7 @@ using namespace std;
 Hopdong::Hopdong() {}
 
 void Hopdong::getbienso() {
-    txt_extract(bienso, loaixe, "xe.txt");
+    txt_extract(bienso, loaixe, "C:\\xe.txt");
 }
 
 
@@ -33,7 +33,7 @@ void Hd_ngay::savetofile() {
     end_time.tm_min = 0;
     end_time.tm_sec = 0;
     ofstream file;
-    file.open("hdngay.txt", ios::app);
+    file.open("C:\\hdngay.txt", ios::app);
     file << hoten << "\n";
     file << cmt << "\n";
     file << loaixe << "\n";
@@ -70,7 +70,7 @@ void Hd_ngay::getdata() {
     //cin >> end_time.tm_year;
 }
 unsigned int Hd_ngay::getprice() {
-    ifstream file("D:\\price.txt");
+    ifstream file("C:\\price.txt");
     string temp;
     int price;
     while ( !file.eof() ) {
@@ -135,7 +135,7 @@ unsigned int Hd_thang::cost()
 void Hd_thang::savetofile()
 {
     ofstream file;
-    file.open("hdngay.txt", ios::app);
+    file.open("C:\\hdngay.txt", ios::app);
     file << hoten << "\n";
     file << cmt << "\n";
     file << loaixe << "\n";
@@ -158,7 +158,7 @@ void Hd_thang::getdata()
     cin.ignore();
     deletesubstr(loaixe, " ");
     lowerstr(loaixe);
-    txt_extract(bienso, loaixe, "xe.txt");
+    txt_extract(bienso, loaixe, "C:\\xe.txt");
     getprice();
     cout << "Bat dau thue tu:\n";
     cout << "thang: ";
@@ -227,7 +227,7 @@ Xe::Xe()
 void Xe::savetofile()
 {
     ofstream file;
-    file.open("xe.txt", ios::app);
+    file.open("C:\\xe.txt", ios::app);
     file << loaixe << " " << bienso << "\n";
     file.close();
 }

@@ -1,7 +1,7 @@
 #include "../include/vectorHd.h"
 using namespace std;
 void readHd(vector<Hd_ngay> &v) {
-        ifstream file("hdngay.txt");
+        ifstream file("C:\\hdngay.txt");
         if (file.is_open()) {
             int i = 0;
             while (!file.eof()) {
@@ -16,7 +16,7 @@ void readHd(vector<Hd_ngay> &v) {
 }
 
 void readHd(vector<Hd_thang> &v) {
-        ifstream file("hdthang.txt");
+        ifstream file("C:\\hdthang.txt");
         if (file.is_open()) {
             int i = 0;
             while (!file.eof()) {
@@ -69,16 +69,16 @@ void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
     }
 }
 
-void changeHd(vector<Hopdong> &v, vector<int> &rank) {
+void changeHd(vector<Hopdong*> &v, vector<int> &rank) {
     int stt;
     //cout << "Chon hop dong ban muon sua (Nhap so thu tu hien thi cua hop dong):\n";
     //cout << "Lua chon cua ban: ";
     //cin >> stt;
-    v.at(rank.at(stt - 1)).getdata();
+    v.at(rank.at(stt - 1))->getdata();
     cout << "Sua hop dong thanh cong!";
 }
 
-void deleteHd(vector<Hopdong*> v, int stt)
+void deleteHd(vector<Hopdong*> &v, int stt)
 {
     //cout << "Chon hop dong ban muon xoa (Nhap so thu tu hien thi cua hop dong):\n";
     //cout << "Lua chon cua ban: ";

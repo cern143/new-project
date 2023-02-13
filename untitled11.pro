@@ -34,5 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    hdngay.txt \
-    xe.txt
+    C:\\hdngay.txt \
+    C:\\xe.txt
