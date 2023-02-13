@@ -63,7 +63,7 @@ void Hd_ngay::getdata() {
     //cin >> end_time.tm_year;
 }
 unsigned int Hd_ngay::getprice() {
-    ifstream file("price.txt");
+    ifstream file("D:\\price.txt");
     string temp;
     int price;
     while ( !file.eof() ) {

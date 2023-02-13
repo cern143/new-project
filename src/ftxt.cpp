@@ -40,7 +40,7 @@ void txt_extract(string &destination, const string spare, const string filename)
 
 void update_price(string newprice, int choice) {
     string temp, unchange;
-    ifstream file("price.txt"); 
+    ifstream file("D:\\price.txt"); 
     ofstream ftemp("temp.txt");
     switch (choice) {
         case 1:

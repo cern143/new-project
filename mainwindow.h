@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "ui_mainwindow.h"
 #include "include/classHd.h"
+#include "include/vectorHd.h"
 #include <QString>
 #include <string>
 #include <QDebug>
