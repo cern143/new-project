@@ -75,8 +75,8 @@ unsigned int Hd_ngay::getprice() {
     int price;
     while ( !file.eof() ) {
         getline(file, temp);
-        if( (temp.find("daily cost: ")) != string::npos ) {
-            deletesubstr(temp, "daily cost: ");
+        if( (temp.find("daily price: ")) != string::npos ) {
+            deletesubstr(temp, "daily price: ");
             price = str_toint(temp);
             return price;
         }
@@ -173,20 +173,20 @@ void Hd_thang::getdata()
     cin >> end_time.tm_year;
 }
 unsigned int Hd_thang::getprice() {
-    ifstream file("cost.txt");
+    ifstream file("C:\\price.txt");
     string temp;
     unsigned int price;
     while ( !file.eof() ) {
         getline(file, temp);
-        if( (temp.find("monthly cost: ")) != string::npos ){
-            deletesubstr(temp, "monthly cost: ");
+        if( (temp.find("monthly price: ")) != string::npos ){
+            deletesubstr(temp, "monthly price: ");
             price = str_toint(temp);
             return price;
         }
     }
 }
 unsigned int Hd_thang::getextra() {
-    ifstream file("cost.txt");
+    ifstream file("price.txt");
     string temp;
     unsigned int extra;
     while ( !file.eof() ) {
