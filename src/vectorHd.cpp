@@ -32,6 +32,7 @@ void readHd(vector<Hd_thang> &v) {
 
 void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
     //cout << "Ket qua tim kiem: \n";
+    bool flag = false;
     switch (mode) {
     case 1:
         for (int i = 0; i < v.size(); i++)
@@ -41,6 +42,7 @@ void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
                 rank.push_back(i);
                 //cout << rank.size() + 1 << "\n";
                 v.at(i)->show();
+                flag = true;
             }
         }
         break;
@@ -52,6 +54,7 @@ void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
                 rank.push_back(i);
                 //cout << rank.size() + 1 << "\n";
                 v.at(i)->show();
+                flag = true;
             }
         }
         break;
@@ -63,9 +66,13 @@ void searchHd(vector<Hopdong*> v, string s, vector<int> &rank, int mode) {
                 rank.push_back(i);
                 //cout << rank.size() + 1 << "\n";
                 v.at(i)->show();
+                flag = true;
             }
         }
         break;
+    }
+    if ( flag == false ) {
+        //Hon tu viet bao loi nha
     }
 }
 
